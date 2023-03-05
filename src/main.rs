@@ -33,7 +33,7 @@ pub fn fit_range(x: f32, imin: f32, imax: f32, omin: f32, omax: f32) -> f32 {
 
 // Sample function demostrating how to render a custom image
 fn render_bg_image() -> [u8; RENDER_BUFFER_SIZE] {
-    let mut linear_render_buffer = [0.0; RENDER_BUFFER_SIZE];
+    let mut linear_render_buffer = vec![0.0; RENDER_BUFFER_SIZE];
 
     // Render a in linear color space
     let mut index: usize = 0;
