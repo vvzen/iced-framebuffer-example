@@ -6,7 +6,7 @@ use iced::{Alignment, Element, Length, Sandbox, Settings};
 // Color
 use colstodian::spaces::{AcesCg, EncodedSrgb};
 use colstodian::tonemap::{PerceptualTonemapper, PerceptualTonemapperParams, Tonemapper};
-use colstodian::{color, Color, Display, Oklab, Scene};
+use colstodian::{color, Color, Display, Scene};
 
 #[derive(Debug, Clone)]
 pub enum ApplicationMessage {
