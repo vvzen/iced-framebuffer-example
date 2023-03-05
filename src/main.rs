@@ -21,8 +21,9 @@ struct ApplicationState {
     rendered_image: image::Handle,
 }
 
-const RENDER_BUFFER_WIDTH: usize = 512;
-const RENDER_BUFFER_HEIGHT: usize = 512;
+const FONT_BYTES: &[u8; 283684] = include_bytes!("../media/FiraCode-Medium.ttf");
+const RENDER_BUFFER_WIDTH: usize = 1024;
+const RENDER_BUFFER_HEIGHT: usize = 1024;
 const RENDER_BUFFER_SIZE: usize = RENDER_BUFFER_WIDTH * RENDER_BUFFER_HEIGHT * 4;
 
 /// Linear remap a value in one range into another range (no clamping)
@@ -198,6 +199,7 @@ impl Sandbox for ApplicationState {
 }
 
 fn main() {
-    let settings = Settings::default();
+    let mut settings = Settings::default();
+    settings.default_font = Some(FONT_BYTES);
     ApplicationState::run(settings).unwrap();
 }
