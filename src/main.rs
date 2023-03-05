@@ -129,9 +129,14 @@ impl Sandbox for ApplicationState {
 
     // Description of the UI
     fn view(&self) -> Element<Self::Message> {
-        // This stores image after it has been rendered
-        let image_viewer = image::Viewer::new(self.rendered_image.clone()).max_scale(1.0);
-        let rendered_image = container(image_viewer).width(Length::Fill).center_x();
+        // This stores the image after it has been rendered
+        let image_viewer = image::Viewer::new(self.rendered_image.clone()).min_scale(1.0);
+
+        let rendered_image = container(image_viewer)
+            .width(Length::Fill)
+            .center_x()
+            .max_height(512)
+            .max_width(800);
 
         // Render button
         let render_button = button(
