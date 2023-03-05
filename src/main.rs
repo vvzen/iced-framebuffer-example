@@ -46,8 +46,8 @@ fn render_bg_image() -> [u8; RENDER_BUFFER_SIZE] {
             // Generate a gradient between two colors in AcesCG
             // TODO: Could we do this in LAB, and then convert to ACES CG ?
             let red = color::acescg::<Scene>(1.0, 0.0, 0.0);
-            let blue = color::acescg::<Scene>(0.0, 0.0, 1.0);
             let green = color::acescg::<Scene>(0.0, 1.0, 0.0);
+            let blue = color::acescg::<Scene>(0.0, 0.0, 1.0);
             let h_blended = red.blend(green, u);
             let v_blended = red.blend(blue, v);
             let final_color = h_blended.blend(v_blended, 0.5);
